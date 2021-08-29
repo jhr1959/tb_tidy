@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+# loads tidyverse then readsRDS
 library(tidyverse)
 tb <- readRDS("tb_tidy.rds")
 tb
