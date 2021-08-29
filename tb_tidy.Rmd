@@ -16,7 +16,21 @@ tb <- readRDS("tb_tidy.rds")
 tb
 ```
 ```{r}
-tb_au <- filter(tb, country =="Australia")
+tb_au <- filter(tb,
+                country =="Australia",
+                !is.na(age_group))
 tb_au
 ```
+
+
+
+```{r}
+library(ggplot2)
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity", position = "fill") +
+  facet_grid(~ age_group) +
+  scale_fill_brewer(palette="Dark2")
+p
+```
+
 
