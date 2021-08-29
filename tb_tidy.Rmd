@@ -1,0 +1,21 @@
+---
+title: "tb_tidy"
+output: html_document
+author: John H Reeves
+date: 2021-08-29
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+tb <- readRDS("tb_tidy.rds")
+tb
+```
+```{r}
+tb_au <- filter(tb, country =="Australia")
+tb_au
+```
+
