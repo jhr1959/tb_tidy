@@ -32,5 +32,58 @@ p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
   scale_fill_brewer(palette="Dark2")
 p
 ```
+```{r}
+library(ggplot2)
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_grid(~ age_group) +
+  scale_fill_brewer(palette="Dark2")
+p
+```
 
+```{r}
+library(ggplot2)
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_grid(~ age_group) +
+  scale_fill_brewer(palette="Dark2")
+p
+```
+```{r}
+library(ggplot2)
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity") +
+  facet_grid(sex ~ age_group) +
+  scale_fill_brewer(palette="Dark2")
+p
+```
+
+
+```{r}
+library(ggplot2)
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity") +
+  facet_grid(~ sex) +
+  scale_fill_brewer(palette="Dark2")
+p
+```
+
+```{r}
+rainbow <- ggplot(tb_au, aes(x = 1, y = count, fill = factor(year))) +
+  geom_bar(stat = "identity", position="fill") +
+  facet_grid(sex ~ age_group) 
+rainbow
+```
+```{r}
+p <- ggplot(tb_au, aes(x = year, y = count, fill = sex)) +
+  geom_bar(stat = "identity") +
+  facet_grid(sex ~ age_group) +
+  scale_fill_brewer(palette="Dark2") + 
+  coord_polar() 
+p
+```
+```{r}
+rainbow +
+  coord_polar(theta = "y")
+```
 
